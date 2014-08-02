@@ -3,7 +3,7 @@ var bodyParser = require('body-parser');
 
 var MongoClient = require('mongodb').MongoClient;
 
-var mongo_url = 'mongodb://127.0.0.1:27017/facecoin';
+var mongo_url = process.env.MONGOLAB_URI || 'mongodb://127.0.0.1:27017/facecoin';
 
 var app = express();
 
