@@ -2,7 +2,7 @@ define([
 	'jquery',
 	'underscore',
     'backbone',
-	'text!templates/coins.html'
+	'text!templates/success.html'
 ], function ($, _, Backbone, template) {
 	// The Home View
 	// ---------------
@@ -14,11 +14,9 @@ define([
 		template: _.template( template ),
 		
 		events: {
-			'click [data-action="next"]': 'next'
 		},
 
 		next: function() {
-			this.router.ship();
 		},
 
 		// At initialization we bind to the relevant events on the `Todos`

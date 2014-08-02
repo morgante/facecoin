@@ -6,8 +6,10 @@ define([
 	'underscore',
     'backbone',
 	'app/views/home',
-	'app/views/coins'
-], function ($, _, Backbone, HomeView, CoinView) {
+	'app/views/coins',
+	'app/views/ship',
+	'app/views/success'
+], function ($, _, Backbone, HomeView, CoinView, ShipView, SuccessView) {
 
 	var Workspace = Backbone.Router.extend({
 
@@ -22,6 +24,14 @@ define([
 
 		coins: function() {
 			new CoinView({router: this});
+		},
+
+		ship: function() {
+			new ShipView({router: this});
+		},
+
+		success: function() {
+			new SuccessView({router: this});
 		}
 
 	});

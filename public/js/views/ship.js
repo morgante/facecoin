@@ -2,7 +2,7 @@ define([
 	'jquery',
 	'underscore',
     'backbone',
-	'text!templates/coins.html'
+	'text!templates/ship.html'
 ], function ($, _, Backbone, template) {
 	// The Home View
 	// ---------------
@@ -18,7 +18,7 @@ define([
 		},
 
 		next: function() {
-			this.router.ship();
+			this.router.success();
 		},
 
 		// At initialization we bind to the relevant events on the `Todos`
