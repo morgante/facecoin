@@ -1,0 +1,4 @@
+facecoin
+========
+
+Personalized currency
