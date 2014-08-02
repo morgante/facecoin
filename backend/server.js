@@ -8,6 +8,10 @@ var mongo_url = process.env.MONGOLAB_URI || 'mongodb://127.0.0.1:27017/facecoin'
 var app = express();
 
 app.use(bodyParser.json());
+app.set('views', __dirname + '/../views');
+app.set('view engine', 'ejs');
+app.engine('ejs', require('ejs-locals'));
+app.use(express.static(__dirname + '/../public'));
 
 MongoClient.connect(mongo_url, function(err, db) {
 
@@ -36,8 +40,13 @@ MongoClient.connect(mongo_url, function(err, db) {
 });
 
 app.get('/', function(req, res) {
-	res.send('nothing to see here');
+	res.render("index", {
+	});
 });
 
-app.listen(process.env.PORT || 3000);
+var port = process.env.PORT || 3000;
+
+app.listen(port);
+
+console.log('listening on %s', port);
 
