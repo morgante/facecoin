@@ -1,6 +1,7 @@
 var fp = require('./fp');
 var BTC = require('bitcoinjs-lib');
 var _ = require('lodash');
+var models = require('./models');
 
 function Coin(data) {
 	ko.mapping.fromJS(data, {}, this);
@@ -37,19 +38,34 @@ function subscribeToAddress(address, cb) {
 function initKO() {
 	var $container = $('[data-view="checkout"]');
 	var $views = $('.screen');
+	var $uploadView = $('[data-role="upload"]');
 	var $coinView = $('[data-role="coins"]');
+	var $previewView = $('[data-role="preview"]');
 
 	$views.hide();
 
 	var model = {
-		'photo': 1,
+		'photo': '',
 		'page': 'upload',
 		'coins': [],
+		'icons': [
+			'https://cdn3.iconfinder.com/data/icons/meteocons/512/cloud-128.png',
+			'https://cdn3.iconfinder.com/data/icons/meteocons/512/sun-cloud-128.png',
+			'https://cdn3.iconfinder.com/data/icons/meteocons/512/sun-symbol-128.png',
+			'https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/128/leaf.png'
+		],
 		'selectedDenom': 0,
 		uploadPhoto: function() {
 			fp.upload(function(err, image) {
 				model.photo(image.url);
+
+				model.goToCoins();
 			});
+		},
+		goToUpload: function() {
+			model.page('upload');
+			$views.hide();
+			$uploadView.show();
 		},
 		goToCoins: function() {
 			model.page('coins');
@@ -67,6 +83,7 @@ function initKO() {
 				"amount": model.selectedDenom(),
 				"address": address,
 				"privateKey": key.toWIF(),
+				"model": "",
 				"confirmed": false
 			});
 
@@ -76,12 +93,23 @@ function initKO() {
 
 			subscribeToAddress(address, function(data) {
 				console.log('got data', data);
+				confirm();
 			});
 
-			// testing
+			models.make({
+				"face": model.photo()
+			}, function(err, model) {
+				coin.model(model);
+			});
+
 			setTimeout(confirm, 500);
 
 			return coin;
+		},
+		goPreview: function() {
+			model.page('preview');
+			$views.hide();
+			$previewView.show();
 		}
 	};
 
@@ -100,11 +128,15 @@ function initKO() {
 
 	model = ko.mapping.fromJS(model, spec);
 
+	model.selectIcon = function(context) {
+		model.photo(context);
+		model.goToCoins();
+	};
+
 	model.canProceed = ko.computed(function() {
 		if (model.page() === 'coins') {
 			if (model.coins().length > 0) {
 				return _.every(model.coins(), function(coin) {
-					console.log(coin.confirmed());
 					return coin.confirmed();
 				});
 			}
@@ -113,24 +145,42 @@ function initKO() {
 		return false;
 	});
 
-	model.goToCoins();
+	model.coin = ko.computed(function() {
+		var coins = model.coins();
+
+		if (coins.length < 1) {
+			return undefined;
+		} else {
+			return coins[0];
+		}
+	});
+
+	model.coin.subscribe(function(coin) {
+		coin.model.subscribe(function(url) {
+			console.log('model', url);
+
+			var viewer = new JSC3D.Viewer(document.getElementById('modelPreview'));
+
+			viewer.setParameter('SceneUrl',         model.coin().model());
+			viewer.setParameter('ModelColor',       '#CAA618');
+			viewer.setParameter('BackgroundColor1', '#FFF');
+			viewer.setParameter('BackgroundColor2', '#383840');
+			viewer.setParameter('RenderMode',       'flat');
+
+			viewer.init();
+
+			$('#loadingModel').hide();
+		});
+	});
 
 	ko.applyBindings(model, $container.get(0));
+
+	model.goToUpload();
 }
 
 
 function init() {
 	initKO();
-
-	// var viewer = new JSC3D.Viewer(document.getElementById('cv'));
-
-	// viewer.setParameter('SceneUrl',         '/model.stl');
-	// viewer.setParameter('ModelColor',       '#CAA618');
-	// viewer.setParameter('BackgroundColor1', '#E5D7BA');
-	// viewer.setParameter('BackgroundColor2', '#383840');
-	// viewer.setParameter('RenderMode',       'flat');
-
-	// viewer.init();
 }
 
 $(init);

@@ -4,7 +4,7 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />  
 
-	<title>causio</title>
+	<title>Facecoin</title>
 
 	<!-- Styles -->
 	<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
@@ -17,8 +17,17 @@
       <!-- Main jumbotron for a primary marketing message or call to action -->
       <div class="jumbotron main" data-view="checkout">
       	<div class="screen" data-role="upload">
-			<h1>Hell there!</h1>
-			<p><a data-action="upload" class="btn btn-primary btn-lg" role="button" data-bind="click: uploadPhoto">Upload Photo</a></p>
+			<h1>Facecoin: personalized bitcoins</h1>
+			<p>Facecoins let you make things.</p>
+			<p><button data-action="upload" class="btn btn-primary btn-lg" role="button" data-bind="click: uploadPhoto">Upload A Photo</button></p>
+			<p class="or">
+				- or pick an icon -
+			</p>
+			<div data-bind="foreach: icons">
+				<a href="#" data-bind="click: $parent.selectIcon">
+					<img data-bind="attr: {src: $data}">
+				</a>
+			</div>
 		</div>
 		<div class="screen" data-role="coins">
 			<div>
@@ -28,11 +37,15 @@
 			<ul data-bind="foreach: coins">
 				<li data-bind="css: {confirmed: confirmed()}">
 					<h3 data-bind="text: amount"></h3>
+					<p data-bind="visible: !confirmed()">Send BTC to: <strong data-bind="text: address"></strong></p>
 					<p data-bind="visible: confirmed">CHECK</p>
 				</li>
 			</ul>
-			<p><button class="btn btn-primary btn-lg" role="button" data-bind="enable: canProceed">Next ></button></p>
-
+			<p><button class="btn btn-primary btn-lg" role="button" data-bind="enable: canProceed, click: goPreview">Next ></button></p>
+		</div>
+		<div class="screen" data-role="preview">
+			<div id="loadingModel">Reticulating splines and such...</div>
+			<canvas id="modelPreview" width="500" height="500"></canvas>
 		</div>
       </div>
 
