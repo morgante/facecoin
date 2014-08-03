@@ -50,6 +50,7 @@ function initKO() {
 
 	var model = {
 		'photo': '',
+		'photoType': 'photo',
 		'page': 'upload',
 		'coins': [],
 		'iconSearch': '',
@@ -79,6 +80,8 @@ function initKO() {
 		uploadPhoto: function() {
 			fp.upload(function(err, image) {
 				model.photo(image.url);
+
+				model.photoType('photo');
 
 				model.goToCoins();
 			});
@@ -121,7 +124,8 @@ function initKO() {
 			});
 
 			models.make({
-				"face": model.photo()
+				"face": model.photo(),
+				"type": model.photoType()
 			}, function(err, model) {
 				coin.model(model);
 			});
@@ -159,6 +163,7 @@ function initKO() {
 
 	model.selectIcon = function(context) {
 		model.photo(context);
+		model.photoType('icon');
 		model.goToCoins();
 	};
 
