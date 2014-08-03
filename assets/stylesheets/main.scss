@@ -54,17 +54,21 @@ body {
 			font-size: 138px;
 		}
 
-		span.more {
+		span.hint {
 			position: absolute;
 			left: 110px;
 			top: 45px;
 			font-size: 15px;
 		}
 
+		&.less .hint {
+			left: 50px;
+		}
+
 		&:hover {
 			background: $bottom-color;
 
-			span.more {
+			span.hint {
 				color: #2a6496;
 				font-weight: bold;
 			}

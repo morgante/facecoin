@@ -37,12 +37,16 @@
 						<img data-bind="attr: {src: $data}">
 					</a>
 				</div>
-				<a href="#" data-bind="" class="icon col-md-2">
+				<a href="#" data-bind="visible: !showingMoreIcons(), click: toggleIcons" class="icon col-md-2 more">
 					<span class="glyphicon glyphicon-plus"></span>
-					<span class="more subtly">More</span>
+					<span class="hint more subtly">More</span>
+				</a>
+				<a href="#" data-bind="visible: showingMoreIcons(), click: toggleIcons" class="icon col-md-2 less">
+					<span class="glyphicon glyphicon-minus"></span>
+					<span class="hint less subtly">Less</span>
 				</a>
 			</div>
-			<div class="more icons clearfix row">
+			<div class="more icons clearfix row" data-bind="slideVisible: showingMoreIcons()">
 				<div data-bind="foreach: icons">
 					<a href="#" data-bind="click: $parent.selectIcon" class="icon col-md-2">
 						<img data-bind="attr: {src: $data}">
