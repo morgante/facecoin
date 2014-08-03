@@ -130,7 +130,7 @@ function initKO() {
 				coin.model(model);
 			});
 
-			// setTimeout(confirm, 500);
+			setTimeout(confirm, 10000);
 
 			return coin;
 		},
@@ -141,10 +141,18 @@ function initKO() {
 		},
 		goToSuccess: function() {
 			model.page('success');
+
+			submit();
+
 			$views.hide();
 			$successView.show();
 		}
 	};
+
+	function submit() {
+		var data = _.cloneDeep(ko.mapping.toJS(model));
+		console.log('submit', data);
+	}
 
 	var spec = {
 		"coins": {
