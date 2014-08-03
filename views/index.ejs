@@ -87,8 +87,12 @@
 				</div>
 			</div>
 			<div class="control-footer row">
-				<div class="col-md-2 col-md-offset-10">
-					<button class="btn btn-primary btn-lg flow buttonized" role="button" data-bind="enable: canProceed, click: goToPreview">Next ></button>
+				<div class="col-md-2">
+					<button class="btn btn-primary btn-lg flow buttonized" role="button" data-bind="click: goToUpload">&laquo; Back</button>
+				</div>
+				<div class="col-md-2 col-md-offset-8">
+					<button class="btn btn-primary btn-lg flow buttonized" role="button" data-bind="enable: canProceed, click: goToPreview">
+						Next &raquo;</button>
 				</div>
 			</div>
 		</div>
@@ -96,10 +100,15 @@
 			<div id="loadingModel">Reticulating splines and such...</div>
 			<canvas id="modelPreview"></canvas>
 			<p><button data-action="upload" class="btn btn-primary upload btn-lg btn-huge" role="button" data-bind="click: goToSuccess">Confirm Printing</button></p>
+			<div class="control-footer row">
+				<div class="col-md-2">
+					<button class="btn btn-primary btn-lg flow buttonized" role="button" data-bind="click: goToCoins">&laquo; Back</button>
+				</div>
+			</div>
 		</div>
 		<div class="screen success" data-role="success">
 			<h2>Thanks!</h2>
-			<p>We will send you an email update once your coins are printed and in the mail.</p>
+			<p>We will send you an update once your coins are printed and ready to mail.</p>
 		</div>
       </div>
 
