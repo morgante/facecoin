@@ -27,7 +27,9 @@ function initKO() {
 		denoms: [100, 500, 600],
 		addCoin: function() {
 			var coin = model.coins.mappedCreate({
-				"amount": model.selectedDenom()
+				"amount": model.selectedDenom(),
+				"address": "",
+				"full": false
 			});
 
 			return coin;
