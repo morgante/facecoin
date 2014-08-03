@@ -27,7 +27,7 @@
       <div class="jumbotron main" data-view="checkout">
       	<div class="screen upload" data-role="upload">
 			
-			<p><button data-action="upload" class="btn btn-primary upload btn-lg" role="button" data-bind="click: uploadPhoto">Upload A Photo</button></p>
+			<p><button data-action="upload" class="btn btn-primary upload btn-lg huge" role="button" data-bind="click: uploadPhoto">Upload A Photo</button></p>
 			<p class="subtly or directions">
 				~ or pick an icon ~
 			</p>
@@ -88,13 +88,18 @@
 			</div>
 			<div class="control-footer row">
 				<div class="col-md-2 col-md-offset-10">
-					<button class="btn btn-primary btn-lg flow buttonized" role="button" data-bind="enable: canProceed, click: goPreview">Next ></button>
+					<button class="btn btn-primary btn-lg flow buttonized" role="button" data-bind="enable: canProceed, click: goToPreview">Next ></button>
 				</div>
 			</div>
 		</div>
-		<div class="screen" data-role="preview">
+		<div class="screen preview" data-role="preview">
 			<div id="loadingModel">Reticulating splines and such...</div>
-			<canvas id="modelPreview" width="500" height="500"></canvas>
+			<canvas id="modelPreview"></canvas>
+			<p><button data-action="upload" class="btn btn-primary upload btn-lg btn-huge" role="button" data-bind="click: goToSuccess">Confirm Printing</button></p>
+		</div>
+		<div class="screen success" data-role="success">
+			<h2>Thanks!</h2>
+			<p>We will send you an email update once your coins are printed and in the mail.</p>
 		</div>
       </div>
 

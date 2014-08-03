@@ -34,12 +34,14 @@ body {
 	color: white;
 }
 
+.btn.btn-huge {
+	width: 100%;
+	font-size: 200%;
+	height: 3em;
+}
+
 .screen.upload {
-	.btn.upload {
-		width: 100%;
-		font-size: 200%;
-		height: 3em;
-	}
+	
 
 	a.icon {
 		display: block;
@@ -137,5 +139,11 @@ body {
 				line-height: 2;
 			}
 		}
+	}
+}
+
+.screen.preview {
+	canvas {
+		width: 100%;
 	}
 }

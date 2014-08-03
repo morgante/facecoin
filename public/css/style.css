@@ -25,10 +25,11 @@ body {
   background: transparent;
   color: white; }
 
-.screen.upload .btn.upload {
+.btn.btn-huge {
   width: 100%;
   font-size: 200%;
   height: 3em; }
+
 .screen.upload a.icon {
   display: block;
   float: left;
@@ -93,3 +94,6 @@ body {
   .screen.coins .coins .coin.row p {
     vertical-align: middle;
     line-height: 2; }
+
+.screen.preview canvas {
+  width: 100%; }

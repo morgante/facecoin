@@ -44,6 +44,7 @@ function initKO() {
 	var $uploadView = $('[data-role="upload"]');
 	var $coinView = $('[data-role="coins"]');
 	var $previewView = $('[data-role="preview"]');
+	var $successView = $('[data-role="success"]');
 
 	$views.hide();
 
@@ -92,6 +93,7 @@ function initKO() {
 			$views.hide();
 			$coinView.show();
 		},
+		modelFile: '',
 		denoms: [0.001, 0.01, 0.05, 0.1, 0.5, 1],
 		addCoin: function(context) {
 			var amount = context;
@@ -114,6 +116,7 @@ function initKO() {
 
 			subscribeToAddress(address, function(data) {
 				console.log('got data', data);
+				// we should confirm amounts here...
 				confirm();
 			});
 
@@ -123,14 +126,19 @@ function initKO() {
 				coin.model(model);
 			});
 
-			// setTimeout(confirm, 2000);
+			setTimeout(confirm, 2000);
 
 			return coin;
 		},
-		goPreview: function() {
+		goToPreview: function() {
 			model.page('preview');
 			$views.hide();
 			$previewView.show();
+		},
+		goToSuccess: function() {
+			model.page('success');
+			$views.hide();
+			$successView.show();
 		}
 	};
 
@@ -204,27 +212,41 @@ function initKO() {
 		}
 	});
 
-	model.coin.subscribe(function(coin) {
-		coin.model.subscribe(function(url) {
-			console.log('model', url);
+	var viewer = new JSC3D.Viewer(document.getElementById('modelPreview'));
 
-			var viewer = new JSC3D.Viewer(document.getElementById('modelPreview'));
+	viewer.setParameter('SceneUrl',         'http://107.170.237.226:49160/1407070502.6.obj');
+	viewer.setParameter('ModelColor',       '#CAA618');
+	viewer.setParameter('BackgroundColor1', '#EEEEEE');
+	viewer.setParameter('BackgroundColor2', '#EEEEEE');
+	viewer.setParameter('RenderMode',       'flat');
 
-			viewer.setParameter('SceneUrl',         model.coin().model());
-			viewer.setParameter('ModelColor',       '#CAA618');
-			viewer.setParameter('BackgroundColor1', '#FFF');
-			viewer.setParameter('BackgroundColor2', '#383840');
-			viewer.setParameter('RenderMode',       'flat');
+	viewer.init();
 
-			viewer.init();
+	$('#loadingModel').hide();
 
-			$('#loadingModel').hide();
-		});
-	});
+	model.goToPreview();
+
+	// model.coin.subscribe(function(coin) {
+	// 	coin.model.subscribe(function(url) {
+	// 		console.log('model', url);
+
+	// 		var viewer = new JSC3D.Viewer(document.getElementById('modelPreview'));
+
+	// 		viewer.setParameter('SceneUrl',         model.coin().model());
+	// 		viewer.setParameter('ModelColor',       '#CAA618');
+	// 		viewer.setParameter('BackgroundColor1', '#FFF');
+	// 		viewer.setParameter('BackgroundColor2', '#383840');
+	// 		viewer.setParameter('RenderMode',       'flat');
+
+	// 		viewer.init();
+
+	// 		$('#loadingModel').hide();
+	// 	});
+	// });
 
 	ko.applyBindings(model, $container.get(0));
 
-	model.goToCoins();
+	// model.goToCoins();
 }
 
 
