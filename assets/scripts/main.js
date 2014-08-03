@@ -2,6 +2,7 @@ var fp = require('./fp');
 var BTC = require('bitcoinjs-lib');
 var _ = require('lodash');
 var models = require('./models');
+var icons = require('./icons');
 
 require('./bindings');
 
@@ -57,6 +58,7 @@ function initKO() {
 			'https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/128/leaf.png',
 			'https://cdn3.iconfinder.com/data/icons/wpzoom-developer-icon-set/500/100-128.png'
 		],
+		moreIcons: [],
 		showingMoreIcons: true,
 		'selectedDenom': 0,
 		uploadPhoto: function() {
@@ -140,6 +142,21 @@ function initKO() {
 	model.toggleIcons = function() {
 		model.showingMoreIcons(!model.showingMoreIcons());
 	};
+
+	icons.get({query:"leaf"}, function(err, data) {
+		model.moreIcons.removeAll();
+		
+		_.each(data, function(icon) {
+			console.log(icon);
+			_.find(icon.raster_sizes, function(size) {
+				if (size.size_width >= 128) {
+					model.moreIcons.push(size.formats[0].preview_url);
+
+					return true;
+				}
+			});
+		});
+	});
 
 	model.canProceed = ko.computed(function() {
 		if (model.page() === 'coins') {

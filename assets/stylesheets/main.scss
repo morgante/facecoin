@@ -49,6 +49,7 @@ body {
 		padding-bottom: 15px;
 		text-align: center;
 		border-radius: 10px;
+		height: 158px;
 
 		span.glyphicon {
 			padding-left: 10px;
@@ -79,11 +80,34 @@ body {
 				font-weight: bold;
 			}
 		}
+
+		img {
+			max-height: 120px;
+		}
 	}
 
 	.icons.more {
 		background: $grey-tab;
 
 		border-radius: 10px 0px 10px 10px;
+
+		.search {
+			position: relative;
+
+			.glyphicon {
+				position: absolute;
+				left: 12px;
+				top: 12px;
+				font-size: 150%;
+			}
+
+			input {
+				border: none;
+				background: transparent;
+				font-size: 150%;
+				height: 2em;
+				padding-left: 60px;
+			}
+		}
 	}
 }

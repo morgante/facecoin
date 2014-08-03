@@ -35,7 +35,8 @@ body {
   padding-top: 15px;
   padding-bottom: 15px;
   text-align: center;
-  border-radius: 10px; }
+  border-radius: 10px;
+  height: 158px; }
   .screen.upload a.icon span.glyphicon {
     padding-left: 10px;
     font-size: 128px; }
@@ -54,6 +55,21 @@ body {
     .screen.upload a.icon:hover span.hint {
       color: #2a6496;
       font-weight: bold; }
+  .screen.upload a.icon img {
+    max-height: 120px; }
 .screen.upload .icons.more {
   background: #ddd;
   border-radius: 10px 0px 10px 10px; }
+  .screen.upload .icons.more .search {
+    position: relative; }
+    .screen.upload .icons.more .search .glyphicon {
+      position: absolute;
+      left: 12px;
+      top: 12px;
+      font-size: 150%; }
+    .screen.upload .icons.more .search input {
+      border: none;
+      background: transparent;
+      font-size: 150%;
+      height: 2em;
+      padding-left: 60px; }
