@@ -49,7 +49,7 @@
 			<div class="more icons clearfix row" data-bind="slideVisible: showingMoreIcons()">
 				<div class="search">
 					<span class="glyphicon glyphicon-search"></span>
-					<input type="text" class="form-control subtle search" placeholder="Search">
+					<input type="text" class="form-control subtle search" placeholder="Search" data-bind="value: iconSearch">
 				</div>
 				<div data-bind="foreach: moreIcons">
 					<a href="#" data-bind="click: $parent.selectIcon" class="icon col-md-2">

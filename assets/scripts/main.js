@@ -51,6 +51,7 @@ function initKO() {
 		'photo': '',
 		'page': 'upload',
 		'coins': [],
+		'iconSearch': '',
 		'icons': [
 			'https://cdn3.iconfinder.com/data/icons/meteocons/512/cloud-128.png',
 			'https://cdn3.iconfinder.com/data/icons/meteocons/512/sun-cloud-128.png',
@@ -143,20 +144,29 @@ function initKO() {
 		model.showingMoreIcons(!model.showingMoreIcons());
 	};
 
-	icons.get({query:"leaf"}, function(err, data) {
-		model.moreIcons.removeAll();
-		
-		_.each(data, function(icon) {
-			console.log(icon);
-			_.find(icon.raster_sizes, function(size) {
-				if (size.size_width >= 128) {
-					model.moreIcons.push(size.formats[0].preview_url);
+	model.iconSearch.subscribe(_.throttle(function(value) {
+		console.log('query', value);
 
-					return true;
-				}
+		icons.get({query: value}, function(err, data) {
+			model.moreIcons.removeAll();
+
+			_.each(data, function(icon) {
+				_.find(icon.raster_sizes, function(size) {
+					if (size.size_width >= 128) {
+						model.moreIcons.push(size.formats[0].preview_url);
+
+						return true;
+					}
+				});
 			});
 		});
-	});
+
+	}, 100, {
+		"leading": true,
+		"trailing": true
+	}));
+
+	
 
 	model.canProceed = ko.computed(function() {
 		if (model.page() === 'coins') {
