@@ -130,7 +130,7 @@ function initKO() {
 				coin.model(model);
 			});
 
-			setTimeout(confirm, 500);
+			// setTimeout(confirm, 500);
 
 			return coin;
 		},
