@@ -55,14 +55,14 @@ function initKO() {
 		'coins': [],
 		'iconSearch': '',
 		'icons': [
-			'https://cdn3.iconfinder.com/data/icons/meteocons/512/cloud-128.png',
+			'https://raw.githubusercontent.com/morgante/facecoin/master/yc.png',
 			'https://cdn3.iconfinder.com/data/icons/meteocons/512/sun-cloud-128.png',
 			'https://cdn3.iconfinder.com/data/icons/meteocons/512/sun-symbol-128.png',
 			'https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/128/leaf.png',
 			'https://cdn3.iconfinder.com/data/icons/wpzoom-developer-icon-set/500/100-128.png'
 		],
 		moreIcons: [
-			'https://cdn2.iconfinder.com/data/icons/freecns-cumulus/16/519687-194_LightBulb-128.png',
+			'https://cdn3.iconfinder.com/data/icons/meteocons/512/cloud-128.png',
 			'https://cdn2.iconfinder.com/data/icons/freecns-cumulus/16/519687-194_LightBulb-128.png',
 			'https://cdn2.iconfinder.com/data/icons/freecns-cumulus/16/519687-194_LightBulb-128.png',
 			'https://cdn2.iconfinder.com/data/icons/freecns-cumulus/16/519687-194_LightBulb-128.png',
@@ -130,7 +130,7 @@ function initKO() {
 				coin.model(model);
 			});
 
-			// setTimeout(confirm, 500);
+			setTimeout(confirm, 500);
 
 			return coin;
 		},
@@ -216,8 +216,6 @@ function initKO() {
 			return coins[0];
 		}
 	});
-
-	$('#loadingModel').hide();
 
 	model.goToUpload();
 
