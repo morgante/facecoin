@@ -68,6 +68,7 @@ body {
       top: 12px;
       font-size: 150%; }
     .screen.upload .icons.more .search input {
+      box-shadow: none;
       border: none;
       background: transparent;
       font-size: 150%;

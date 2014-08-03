@@ -59,7 +59,20 @@ function initKO() {
 			'https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/128/leaf.png',
 			'https://cdn3.iconfinder.com/data/icons/wpzoom-developer-icon-set/500/100-128.png'
 		],
-		moreIcons: [],
+		moreIcons: [
+			'https://cdn2.iconfinder.com/data/icons/freecns-cumulus/16/519687-194_LightBulb-128.png',
+			'https://cdn2.iconfinder.com/data/icons/freecns-cumulus/16/519687-194_LightBulb-128.png',
+			'https://cdn2.iconfinder.com/data/icons/freecns-cumulus/16/519687-194_LightBulb-128.png',
+			'https://cdn2.iconfinder.com/data/icons/freecns-cumulus/16/519687-194_LightBulb-128.png',
+			'https://cdn2.iconfinder.com/data/icons/freecns-cumulus/16/519687-194_LightBulb-128.png',
+			'https://cdn2.iconfinder.com/data/icons/freecns-cumulus/16/519687-194_LightBulb-128.png',
+			'https://cdn2.iconfinder.com/data/icons/freecns-cumulus/16/519687-194_LightBulb-128.png',
+			'https://cdn2.iconfinder.com/data/icons/freecns-cumulus/16/519687-194_LightBulb-128.png',
+			'https://cdn2.iconfinder.com/data/icons/freecns-cumulus/16/519687-194_LightBulb-128.png',
+			'https://cdn2.iconfinder.com/data/icons/freecns-cumulus/16/519687-194_LightBulb-128.png',
+			'https://cdn2.iconfinder.com/data/icons/freecns-cumulus/16/519687-194_LightBulb-128.png',
+			'https://cdn2.iconfinder.com/data/icons/freecns-cumulus/16/519687-194_LightBulb-128.png'
+		],
 		showingMoreIcons: true,
 		'selectedDenom': 0,
 		uploadPhoto: function() {
