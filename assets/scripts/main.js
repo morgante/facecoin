@@ -52,7 +52,8 @@ function initKO() {
 			'https://cdn3.iconfinder.com/data/icons/meteocons/512/cloud-128.png',
 			'https://cdn3.iconfinder.com/data/icons/meteocons/512/sun-cloud-128.png',
 			'https://cdn3.iconfinder.com/data/icons/meteocons/512/sun-symbol-128.png',
-			'https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/128/leaf.png'
+			'https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/128/leaf.png',
+			'https://cdn3.iconfinder.com/data/icons/wpzoom-developer-icon-set/500/100-128.png'
 		],
 		'selectedDenom': 0,
 		uploadPhoto: function() {

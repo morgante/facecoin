@@ -31,9 +31,15 @@
 			<p class="subtly or">
 				- or pick an icon -
 			</p>
-			<div data-bind="foreach: icons">
-				<a href="#" data-bind="click: $parent.selectIcon">
-					<img data-bind="attr: {src: $data}">
+			<div class="icons clearfix row">
+				<div data-bind="foreach: icons">
+					<a href="#" data-bind="click: $parent.selectIcon" class="icon col-md-2">
+						<img data-bind="attr: {src: $data}">
+					</a>
+				</div>
+				<a href="#" data-bind="" class="icon col-md-2">
+					<span class="glyphicon glyphicon-plus"></span>
+					<span class="more subtly">More</span>
 				</a>
 			</div>
 		</div>

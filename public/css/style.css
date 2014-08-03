@@ -28,3 +28,19 @@ body {
 .screen.upload p.or {
   text-align: center;
   font-size: 120%; }
+.screen.upload a.icon {
+  display: block;
+  float: left;
+  position: relative; }
+  .screen.upload a.icon span.glyphicon {
+    font-size: 128px; }
+  .screen.upload a.icon span.more {
+    position: absolute;
+    left: 95px;
+    top: 25px;
+    font-size: 15px; }
+  .screen.upload a.icon:hover span.more {
+    color: #2a6496;
+    font-weight: bold; }
+  .screen.upload a.icon img {
+    border-radius: 5px; }

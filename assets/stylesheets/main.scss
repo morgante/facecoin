@@ -39,4 +39,30 @@ body {
 		text-align: center;
 		font-size: 120%;
 	}
+
+	a.icon {
+		display: block;
+		float: left;
+		position: relative;
+
+		span.glyphicon {
+			font-size: 128px;
+		}
+
+		span.more {
+			position: absolute;
+			left: 95px;
+			top: 25px;
+			font-size: 15px;
+		}
+
+		&:hover span.more {
+			color: #2a6496;
+			font-weight: bold;
+		}
+
+		img {
+			border-radius: 5px;
+		}
+	}
 }
