@@ -9,22 +9,35 @@
 	<!-- Styles -->
 	<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
 	<link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
+	<link href="/css/style.css" rel="stylesheet">
 </head>
 <body>
-	<div >
-		<!-- View Container -->
-		<div class="content" id="content" data-role="view"></div>
+	<div class="container theme-showcase" role="main">
 
-		<canvas id="cv" width=640 height=480></canvas>
-
-		<div id="footer" class="footer container">
-			<p>Causio is alpha.</p>
+      <!-- Main jumbotron for a primary marketing message or call to action -->
+      <div class="jumbotron main" data-view="checkout">
+      	<div class="screen" data-role="upload">
+			<h1>Hell there!</h1>
+			<p><a data-action="upload" class="btn btn-primary btn-lg" role="button" data-bind="click: uploadPhoto">Upload Photo</a></p>
 		</div>
-	</div>
+		<div class="screen" data-role="coins">
+			<div>
+				<select data-bind="options: denoms, value: selectedDenom"></select>
+				<a data-action="add" class="btn btn-primary btn-lg" role="button" data-bind="click: addCoin">+</a>
+			</div>
+			<ul data-bind="foreach: coins">
+				<li><h3 data-bind="text: amount"></h3></li>
+			</ul>
+		</div>
+      </div>
+
+     </div>
 
 	<!-- External Scripts -->
 	<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="//api.filepicker.io/v1/filepicker.js"></script>
 	<script src="/js/knockout.js"></script>
+	<script src="/js/knockout.mapping.js"></script>
 	<script src="/js/jsc3d.js"></script>
 	<script src="/js/main.js"></script>
 </body>
