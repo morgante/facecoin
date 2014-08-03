@@ -103,7 +103,7 @@ function initKO() {
 			var key = BTC.ECKey.makeRandom();
 			var address = key.pub.getAddress().toString();
 
-			address = '15X4BiV7bc5xN2EYPyPagtayHnFWEQ24zr'; // testing
+			// address = '15X4BiV7bc5xN2EYPyPagtayHnFWEQ24zr'; // testing
 
 			var coin = model.coins.mappedCreate({
 				"amount": amount,
@@ -130,7 +130,7 @@ function initKO() {
 				coin.model(model);
 			});
 
-			setTimeout(confirm, 500);
+			// setTimeout(confirm, 500);
 
 			return coin;
 		},
