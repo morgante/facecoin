@@ -92,15 +92,16 @@ function initKO() {
 			$views.hide();
 			$coinView.show();
 		},
-		denoms: [100, 500, 600],
-		addCoin: function() {
+		denoms: [0.001, 0.01, 0.05, 0.1, 0.5, 1],
+		addCoin: function(context) {
+			var amount = context;
 			var key = BTC.ECKey.makeRandom();
 			var address = key.pub.getAddress().toString();
 
 			address = '15X4BiV7bc5xN2EYPyPagtayHnFWEQ24zr'; // testing
 
 			var coin = model.coins.mappedCreate({
-				"amount": model.selectedDenom(),
+				"amount": amount,
 				"address": address,
 				"privateKey": key.toWIF(),
 				"model": "",
@@ -122,7 +123,7 @@ function initKO() {
 				coin.model(model);
 			});
 
-			setTimeout(confirm, 500);
+			setTimeout(confirm, 2000);
 
 			return coin;
 		},
@@ -223,7 +224,7 @@ function initKO() {
 
 	ko.applyBindings(model, $container.get(0));
 
-	model.goToUpload();
+	model.goToCoins();
 }
 
 

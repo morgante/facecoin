@@ -8,6 +8,10 @@ body {
   font-family: "Georgia", sans-serif;
   font-style: italic; }
 
+.directions {
+  text-align: center;
+  font-size: 120%; }
+
 .background.top {
   position: absolute;
   z-index: -1;
@@ -25,9 +29,6 @@ body {
   width: 100%;
   font-size: 200%;
   height: 3em; }
-.screen.upload p.or {
-  text-align: center;
-  font-size: 120%; }
 .screen.upload a.icon {
   display: block;
   float: left;
@@ -74,3 +75,21 @@ body {
       font-size: 150%;
       height: 2em;
       padding-left: 60px; }
+
+.control-footer {
+  margin-top: 30px;
+  padding-top: 10px;
+  border-top: 2px solid #e5e5e5; }
+
+.buttonized {
+  display: block;
+  position: relative;
+  width: 70%;
+  height: 0;
+  padding-bottom: 20%; }
+
+.screen.coins .coins .coin.row {
+  margin-top: 15px; }
+  .screen.coins .coins .coin.row p {
+    vertical-align: middle;
+    line-height: 2; }
