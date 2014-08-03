@@ -31,16 +31,21 @@ body {
 .screen.upload a.icon {
   display: block;
   float: left;
-  position: relative; }
+  position: relative;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  text-align: center;
+  border-radius: 10px; }
   .screen.upload a.icon span.glyphicon {
-    font-size: 128px; }
+    padding-left: 10px;
+    font-size: 138px; }
   .screen.upload a.icon span.more {
     position: absolute;
-    left: 95px;
-    top: 25px;
+    left: 110px;
+    top: 45px;
     font-size: 15px; }
-  .screen.upload a.icon:hover span.more {
-    color: #2a6496;
-    font-weight: bold; }
-  .screen.upload a.icon img {
-    border-radius: 5px; }
+  .screen.upload a.icon:hover {
+    background: #348CE8; }
+    .screen.upload a.icon:hover span.more {
+      color: #2a6496;
+      font-weight: bold; }

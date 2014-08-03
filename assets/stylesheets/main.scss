@@ -44,25 +44,30 @@ body {
 		display: block;
 		float: left;
 		position: relative;
+		padding-top: 15px;
+		padding-bottom: 15px;
+		text-align: center;
+		border-radius: 10px;
 
 		span.glyphicon {
-			font-size: 128px;
+			padding-left: 10px;
+			font-size: 138px;
 		}
 
 		span.more {
 			position: absolute;
-			left: 95px;
-			top: 25px;
+			left: 110px;
+			top: 45px;
 			font-size: 15px;
 		}
 
-		&:hover span.more {
-			color: #2a6496;
-			font-weight: bold;
-		}
+		&:hover {
+			background: $bottom-color;
 
-		img {
-			border-radius: 5px;
+			span.more {
+				color: #2a6496;
+				font-weight: bold;
+			}
 		}
 	}
 }

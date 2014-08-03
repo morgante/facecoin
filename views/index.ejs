@@ -42,6 +42,23 @@
 					<span class="more subtly">More</span>
 				</a>
 			</div>
+			<div class="more icons clearfix row">
+				<div data-bind="foreach: icons">
+					<a href="#" data-bind="click: $parent.selectIcon" class="icon col-md-2">
+						<img data-bind="attr: {src: $data}">
+					</a>
+				</div>
+				<div data-bind="foreach: icons">
+					<a href="#" data-bind="click: $parent.selectIcon" class="icon col-md-2">
+						<img data-bind="attr: {src: $data}">
+					</a>
+				</div>
+				<div data-bind="foreach: icons">
+					<a href="#" data-bind="click: $parent.selectIcon" class="icon col-md-2">
+						<img data-bind="attr: {src: $data}">
+					</a>
+				</div>
+			</div>
 		</div>
 		<div class="screen" data-role="coins">
 			<div>
