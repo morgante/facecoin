@@ -12,15 +12,23 @@
 	<link href="/css/style.css" rel="stylesheet">
 </head>
 <body>
-	<div class="container theme-showcase" role="main">
+	<div class="background top">
+	</div>
+
+	<div class="container" role="main">
+
+		<div class="container jumbotron intro">
+			<h1>Facecoin: personalized bitcoins</h1>
+			<p>Facecoins let you make things.</p>
+		</div>
+
 
       <!-- Main jumbotron for a primary marketing message or call to action -->
       <div class="jumbotron main" data-view="checkout">
-      	<div class="screen" data-role="upload">
-			<h1>Facecoin: personalized bitcoins</h1>
-			<p>Facecoins let you make things.</p>
-			<p><button data-action="upload" class="btn btn-primary btn-lg" role="button" data-bind="click: uploadPhoto">Upload A Photo</button></p>
-			<p class="or">
+      	<div class="screen upload" data-role="upload">
+			
+			<p><button data-action="upload" class="btn btn-primary upload btn-lg" role="button" data-bind="click: uploadPhoto">Upload A Photo</button></p>
+			<p class="subtly or">
 				- or pick an icon -
 			</p>
 			<div data-bind="foreach: icons">

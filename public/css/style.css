@@ -1,3 +1,30 @@
 body {
   padding-top: 70px;
-  padding-bottom: 30px; }
+  padding-bottom: 30px;
+  background-color: #348CE8; }
+
+.subtly {
+  color: #afafaf;
+  font-family: "Georgia", sans-serif;
+  font-style: italic; }
+
+.background.top {
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 400px;
+  background-color: #5F3BCD; }
+
+.intro {
+  background: transparent;
+  color: white; }
+
+.screen.upload .btn.upload {
+  width: 100%;
+  font-size: 200%;
+  height: 3em; }
+.screen.upload p.or {
+  text-align: center;
+  font-size: 120%; }

@@ -1,4 +1,42 @@
+$top-color: #5F3BCD;
+$bottom-color: #348CE8;
+
 body {
-  padding-top: 70px;
-  padding-bottom: 30px;
+	padding-top: 70px;
+	padding-bottom: 30px;
+	background-color: $bottom-color;
+}
+
+.subtly {
+	color: #afafaf;
+	font-family: "Georgia", sans-serif;
+	font-style: italic;
+}
+
+.background.top {
+	position: absolute;
+	z-index: -1;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 400px;
+	background-color: $top-color;
+}
+
+.intro {
+	background: transparent;
+	color: white;
+}
+
+.screen.upload {
+	.btn.upload {
+		width: 100%;
+		font-size: 200%;
+		height: 3em;
+	}
+
+	p.or {
+		text-align: center;
+		font-size: 120%;
+	}
 }
