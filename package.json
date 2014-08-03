@@ -15,7 +15,8 @@
     "ejs-locals": "^1.0.2",
     "express": "^4.7.2",
     "lodash": "^2.4.1",
-    "mongodb": "^1.4.8"
+    "mongodb": "^1.4.8",
+    "zeroclipboard": "^2.1.6"
   },
   "devDependencies": {
     "gulp": "~3.5.5",

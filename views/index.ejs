@@ -79,7 +79,7 @@
 						<p data-bind="visible: confirmed()">Got it!</p>
 					</div>
 					<div class="col-md-2">
-						<button type="button" class="btn btn-info btn-lg buttonized" data-bind="visible: !confirmed()">Copy</button>
+						<button type="button" class="btn btn-warning btn-lg buttonized" data-bind="visible: !confirmed(), copyClick: address()">Copy</button>
 						<button type="button" class="btn btn-success btn-lg buttonized" data-bind="visible: confirmed()">
 							<span class="glyphicon glyphicon-check"></span>
 						</button>
