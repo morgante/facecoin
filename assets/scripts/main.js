@@ -74,7 +74,7 @@ function initKO() {
 			'https://cdn2.iconfinder.com/data/icons/freecns-cumulus/16/519687-194_LightBulb-128.png',
 			'https://cdn2.iconfinder.com/data/icons/freecns-cumulus/16/519687-194_LightBulb-128.png'
 		],
-		showingMoreIcons: true,
+		showingMoreIcons: false,
 		'selectedDenom': 0,
 		uploadPhoto: function() {
 			fp.upload(function(err, image) {
@@ -126,7 +126,7 @@ function initKO() {
 				coin.model(model);
 			});
 
-			setTimeout(confirm, 2000);
+			// setTimeout(confirm, 2000);
 
 			return coin;
 		},
@@ -212,37 +212,27 @@ function initKO() {
 		}
 	});
 
-	var viewer = new JSC3D.Viewer(document.getElementById('modelPreview'));
-
-	viewer.setParameter('SceneUrl',         'http://107.170.237.226:49160/1407070502.6.obj');
-	viewer.setParameter('ModelColor',       '#CAA618');
-	viewer.setParameter('BackgroundColor1', '#EEEEEE');
-	viewer.setParameter('BackgroundColor2', '#EEEEEE');
-	viewer.setParameter('RenderMode',       'flat');
-
-	viewer.init();
-
 	$('#loadingModel').hide();
 
-	model.goToPreview();
+	model.goToUpload();
 
-	// model.coin.subscribe(function(coin) {
-	// 	coin.model.subscribe(function(url) {
-	// 		console.log('model', url);
+	model.coin.subscribe(function(coin) {
+		coin.model.subscribe(function(url) {
+			console.log('model', url);
 
-	// 		var viewer = new JSC3D.Viewer(document.getElementById('modelPreview'));
+			var viewer = new JSC3D.Viewer(document.getElementById('modelPreview'));
 
-	// 		viewer.setParameter('SceneUrl',         model.coin().model());
-	// 		viewer.setParameter('ModelColor',       '#CAA618');
-	// 		viewer.setParameter('BackgroundColor1', '#FFF');
-	// 		viewer.setParameter('BackgroundColor2', '#383840');
-	// 		viewer.setParameter('RenderMode',       'flat');
+			viewer.setParameter('SceneUrl',         model.coin().model());
+			viewer.setParameter('ModelColor',       '#CAA618');
+			viewer.setParameter('BackgroundColor1', '#EEEEEE');
+			viewer.setParameter('BackgroundColor2', '#EEEEEE');
+			viewer.setParameter('RenderMode',       'flat');
 
-	// 		viewer.init();
+			viewer.init();
 
-	// 		$('#loadingModel').hide();
-	// 	});
-	// });
+			$('#loadingModel').hide();
+		});
+	});
 
 	ko.applyBindings(model, $container.get(0));
 
