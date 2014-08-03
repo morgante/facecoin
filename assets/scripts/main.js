@@ -1,4 +1,5 @@
 var fp = require('./fp');
+var BTC = require('bitcoinjs-lib');
 
 function Coin(data) {
 	ko.mapping.fromJS(data, {}, this);
@@ -26,9 +27,12 @@ function initKO() {
 		},
 		denoms: [100, 500, 600],
 		addCoin: function() {
+			var key = BTC.ECKey.makeRandom();
+
 			var coin = model.coins.mappedCreate({
 				"amount": model.selectedDenom(),
-				"address": "",
+				"address": key.pub.getAddress.toString(),
+				"privateKey": key.toWIF(),
 				"full": false
 			});
 
