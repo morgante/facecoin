@@ -26,8 +26,13 @@
 				<a data-action="add" class="btn btn-primary btn-lg" role="button" data-bind="click: addCoin">+</a>
 			</div>
 			<ul data-bind="foreach: coins">
-				<li><h3 data-bind="text: amount"></h3></li>
+				<li data-bind="css: {confirmed: confirmed()}">
+					<h3 data-bind="text: amount"></h3>
+					<p data-bind="visible: confirmed">CHECK</p>
+				</li>
 			</ul>
+			<p><button class="btn btn-primary btn-lg" role="button" data-bind="enable: canProceed">Next ></button></p>
+
 		</div>
       </div>
 
