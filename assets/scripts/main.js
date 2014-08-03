@@ -57,7 +57,7 @@ function initKO() {
 			'https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/128/leaf.png',
 			'https://cdn3.iconfinder.com/data/icons/wpzoom-developer-icon-set/500/100-128.png'
 		],
-		showingMoreIcons: false,
+		showingMoreIcons: true,
 		'selectedDenom': 0,
 		uploadPhoto: function() {
 			fp.upload(function(err, image) {

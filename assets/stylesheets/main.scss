@@ -1,5 +1,6 @@
 $top-color: #5F3BCD;
 $bottom-color: #348CE8;
+$grey-tab: #ddd;
 
 body {
 	padding-top: 70px;
@@ -51,18 +52,23 @@ body {
 
 		span.glyphicon {
 			padding-left: 10px;
-			font-size: 138px;
+			font-size: 128px;
 		}
 
 		span.hint {
 			position: absolute;
-			left: 110px;
+			left: 105px;
 			top: 45px;
 			font-size: 15px;
 		}
 
-		&.less .hint {
-			left: 50px;
+		&.less {
+			background: $grey-tab;
+			border-radius: 10px 10px 0px 0px;
+
+			.hint {
+				left: 50px;
+			}
 		}
 
 		&:hover {
@@ -73,5 +79,11 @@ body {
 				font-weight: bold;
 			}
 		}
+	}
+
+	.icons.more {
+		background: $grey-tab;
+
+		border-radius: 10px 0px 10px 10px;
 	}
 }

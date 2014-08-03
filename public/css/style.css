@@ -38,16 +38,22 @@ body {
   border-radius: 10px; }
   .screen.upload a.icon span.glyphicon {
     padding-left: 10px;
-    font-size: 138px; }
+    font-size: 128px; }
   .screen.upload a.icon span.hint {
     position: absolute;
-    left: 110px;
+    left: 105px;
     top: 45px;
     font-size: 15px; }
-  .screen.upload a.icon.less .hint {
-    left: 50px; }
+  .screen.upload a.icon.less {
+    background: #ddd;
+    border-radius: 10px 10px 0px 0px; }
+    .screen.upload a.icon.less .hint {
+      left: 50px; }
   .screen.upload a.icon:hover {
     background: #348CE8; }
     .screen.upload a.icon:hover span.hint {
       color: #2a6496;
       font-weight: bold; }
+.screen.upload .icons.more {
+  background: #ddd;
+  border-radius: 10px 0px 10px 10px; }
